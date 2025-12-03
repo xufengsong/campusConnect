@@ -239,7 +239,9 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 # --- Static Files Settings (for Whitenoise) ---
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build')
+# Vercel uses staticfiles_build
+# Render uses staticfiles
 # being handled in STORAGES now
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
