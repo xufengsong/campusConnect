@@ -34,7 +34,7 @@ from datetime import datetime, timedelta
 from django.utils import timezone
 from pgvector.django import L2Distance
 
-
+from django.middleware.csrf import get_token
 # Load environment variables from .env file
 load_dotenv()
 
@@ -57,7 +57,8 @@ def get_csrf_token(request):
     This view sends the CSRF token as a cookie.
     The frontend calls this once to get the cookie set.
     """
-    return JsonResponse({"detail": "CSRF cookie set"})
+    csrf_token = get_token(request)
+    return JsonResponse({"detail": "CSRF cookie set", "csrfToken": csrf_token})
 
 
 @api_view(['GET'])
