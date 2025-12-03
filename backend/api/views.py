@@ -25,8 +25,8 @@ from celery.result import AsyncResult
 import textwrap
 
 import json
-import openai
-from openai import OpenAI
+# import openai
+# from openai import OpenAI
 import requests
 import os
 from dotenv import load_dotenv
@@ -39,8 +39,8 @@ from pgvector.django import L2Distance
 load_dotenv()
 
 # Get the API key from environment variables
-openai.api_key = os.getenv('OPENAI_API_KEY')
-client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+# openai.api_key = os.getenv('OPENAI_API_KEY')
+# client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
 
 
 # PayPal setup
