@@ -334,6 +334,8 @@ CSRF_COOKIE_SECURE = not DEBUG  # false in development
 SESSION_COOKIE_SECURE = not DEBUG  # false in development 
 # When you go to production (HTTPS), you should set these back to True.
 
+CSRF_COOKIE_HTTPONLY = False
+
 # Add these new lines:
 SESSION_COOKIE_DOMAIN = None
 SESSION_COOKIE_NAME = 'sessionid'
