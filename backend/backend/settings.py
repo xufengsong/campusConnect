@@ -151,6 +151,14 @@ else:
             'HOST': 'localhost',
             'PORT': '5432',
         }
+        # 'default': {
+        #     'ENGINE': 'django.db.backends.postgresql',
+        #     'NAME': 'postgres',
+        #     'USER': 'postgres.ytjzpmdabecdibtcyiap',  # e.g., postgres.abcdefg
+        #     'PASSWORD': 'songhuasheng12%',
+        #     'HOST': 'aws-1-ap-southeast-1.pooler.supabase.com',
+        #     'PORT': '5432',  # SESSION PORT
+        # }
     }
 
 DISABLE_SERVER_SIDE_CURSORS = True
@@ -283,11 +291,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Add this at the end of the file
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",
+    "https://korea-exchange-hub.vercel.app",
 ]
 
 # Additionally, for Django 4.0+ you should also configure CSRF_TRUSTED_ORIGINS
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:8080",
+    "https://korea-exchange-hub.vercel.app",
 ]
 
 # Add this line to specify your custom user model
