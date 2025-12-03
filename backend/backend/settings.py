@@ -292,12 +292,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",
     "https://korea-exchange-hub.vercel.app",
+    "https://campus-connect-pi-wine.vercel.app",
 ]
 
 # Additionally, for Django 4.0+ you should also configure CSRF_TRUSTED_ORIGINS
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:8080",
     "https://korea-exchange-hub.vercel.app",
+    "https://campus-connect-pi-wine.vercel.app",
 ]
 
 # Add this line to specify your custom user model
