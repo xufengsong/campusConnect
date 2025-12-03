@@ -100,28 +100,28 @@ TEMPLATES = [
 
 ASGI_APPLICATION = 'backend.asgi.application'
 
-REDIS_URL = os.environ.get('REDIS_CHANNEL_URL')
+# REDIS_URL = os.environ.get('REDIS_CHANNEL_URL')
 
-if REDIS_URL:
-    CHANNEL_LAYERS = {
-        'default': {
-            'BACKEND': 'channels_redis.core.RedisChannelLayer',
-            'CONFIG': {
-                # Use a single entry with the secure rediss:// protocol
-                "hosts": [(REDIS_URL)],
-            },
-        },
-    }
-else:
-    # Fallback for local development if the environment variable is not set
-    CHANNEL_LAYERS = {
-        'default': {
-            'BACKEND': 'channels_redis.core.RedisChannelLayer',
-            'CONFIG': {
-                'hosts': [('127.0.0.1', 6379)],
-            },
-        },
-    }
+# if REDIS_URL:
+#     CHANNEL_LAYERS = {
+#         'default': {
+#             'BACKEND': 'channels_redis.core.RedisChannelLayer',
+#             'CONFIG': {
+#                 # Use a single entry with the secure rediss:// protocol
+#                 "hosts": [(REDIS_URL)],
+#             },
+#         },
+#     }
+# else:
+#     # Fallback for local development if the environment variable is not set
+#     CHANNEL_LAYERS = {
+#         'default': {
+#             'BACKEND': 'channels_redis.core.RedisChannelLayer',
+#             'CONFIG': {
+#                 'hosts': [('127.0.0.1', 6379)],
+#             },
+#         },
+#     }
 
 
 
@@ -153,25 +153,27 @@ else:
         }
     }
 
+DISABLE_SERVER_SIDE_CURSORS = True
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': 'redis://127.0.0.1:6379/0',
-        'OPTIONS': {
-            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
-            'CONNECTION_POOL_KWARGS': {
-                'max_connections': 100,
-                'retry_on_timeout': True,
-            },
-            # 'SENTINEL_KWARGS': {
-            #     'socket_timeout': 0.1,
-            # },
-            # Add this for secure connections (TLS/SSL), which is standard for cloud databases.
-            # "SSL_CERT_REQS": None,
-        }
-    }
-}
+
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django_redis.cache.RedisCache',
+#         'LOCATION': 'redis://127.0.0.1:6379/0',
+#         'OPTIONS': {
+#             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+#             'CONNECTION_POOL_KWARGS': {
+#                 'max_connections': 100,
+#                 'retry_on_timeout': True,
+#             },
+#             # 'SENTINEL_KWARGS': {
+#             #     'socket_timeout': 0.1,
+#             # },
+#             # Add this for secure connections (TLS/SSL), which is standard for cloud databases.
+#             # "SSL_CERT_REQS": None,
+#         }
+#     }
+# }
 
 INTERNAL_IPS = [
     '127.0.0.1',
